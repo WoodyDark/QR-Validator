@@ -10,7 +10,7 @@ const selectedCamera = ref<Camera>();
 const oldResults = localStorage.getItem("results");
 const startingResults = oldResults ? JSON.parse(oldResults) : [];
 const results = ref<{ id: number; data: string }[]>(startingResults);
-let lastId = Math.max(...[...startingResults.map((d) => d.id), 0]);
+let lastId = Math.max(...[...startingResults.map((d: any) => d.id), 0]);
 const cooldown = ref(false);
 const resultsString = computed(() =>
   results.value.map((result) => result.data)
